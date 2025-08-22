@@ -1,5 +1,6 @@
-sio = socketio.Client()
 import socketio #pip install "python-socketio[client]"
+
+sio = socketio.Client()
 
 @sio.event
 def connect():
@@ -20,6 +21,11 @@ def on_server(data):
     ret += "➖➖➖➖➖➖➖➖➖"
     print(ret)
 
-def startLottery():
+def main():
     sio.connect("wss://api.lotteryresulte.org", transports=["websocket"])
     sio.wait()
+    
+    
+if __name__ == "__main__":
+    main()
+    
